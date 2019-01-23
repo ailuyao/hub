@@ -1,0 +1,52 @@
+{
+  "private": true,
+  "name": "hub",
+  "version": "0.0.1",
+  "description": "subscribe/publish lib",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "jsnext:main": "dist/index.esm.js",
+  "browser": "dist/index.umd.js",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "types": "src/index.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luyzh/hub.git"
+  },
+  "keywords": [
+    "emitter"
+  ],
+  "author": "ly",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/luyzh/hub/issues"
+  },
+  "homepage": "https://github.com/luyzh/hub",
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "rollup -c --environment NODE_ENV:production",
+    "build:watch": "rollup -cw",
+    "lint": "./node_modules/.bin/tslint './src/**/*.?(ts|tsx)'",
+    "lint:fix": "./node_modules/.bin/tslint --fix 'src/**/*.ts*'",
+    "jest": "./node_modules/.bin/jest",
+    "test": "npm run lint:fix && npm run jest",
+    "prepare": "npm run clean && npm test && npm run build"
+  },
+  "pre-commit": [
+    "test"
+  ],
+  "devDependencies": {
+    "jest": "^23.6.0",
+    "pre-commit": "^1.2.2",
+    "rimraf": "^2.6.3",
+    "rollup": "^1.1.2",
+    "rollup-plugin-typescript2": "^0.19.2",
+    "rollup-watch": "^4.3.1",
+    "ts-jest": "^23.10.5",
+    "tslint": "^5.12.1",
+    "typescript": "^3.2.4"
+  }
+}
